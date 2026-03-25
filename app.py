@@ -9,8 +9,8 @@ client = OpenAI(
     base_url="https://openrouter.ai/api/v1"
 )
 def send_email(to_email, content):
-    sender_email = "gadikarprashant07@gmail.com"
-    app_password = "zwpcqoreishqixvr"
+    sender_email = "youremail@gmail.com"
+    app_password = "gmail-app-passworf"
 
     msg = MIMEText(content)
     msg["Subject"] = "AI Study Assistant"
