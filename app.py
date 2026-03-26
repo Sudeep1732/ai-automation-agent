@@ -10,7 +10,7 @@ client = OpenAI(
 )
 def send_email(to_email, content):
     sender_email = "youremail@gmail.com"
-    app_password = "gmail-app-passworf"
+    app_password = "gmail-app-password"
 
     msg = MIMEText(content)
     msg["Subject"] = "AI Study Assistant"
