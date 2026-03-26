@@ -5,14 +5,12 @@ import streamlit as st
 
 # 🔑 PUT YOUR API KEY HERE
 client = OpenAI(
-    api_key="YOUR-API-KEY",
+    api_key=st.secrets["OPENAI_API_KEY"],
     base_url="https://openrouter.ai/api/v1"
 )
 def send_email(to_email, content):
-    sender_email = "youremail@gmail.com"
-    app_password = "gmail-app-password"
-
-    msg = MIMEText(content)
+sender_email = st.secrets["EMAIL"]
+app_password = st.secrets["APP_PASSWORD"]    msg = MIMEText(content)
     msg["Subject"] = "AI Study Assistant"
     msg["From"] = sender_email
     msg["To"] = to_email
