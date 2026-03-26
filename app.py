@@ -10,7 +10,8 @@ client = OpenAI(
 )
 def send_email(to_email, content):
 	sender_email = st.secrets["EMAIL"]
-	app_password = st.secrets["APP_PASSWORD"]    msg = MIMEText(content)
+	app_password = st.secrets["APP_PASSWORD"]    
+	msg = MIMEText(content)
     	msg["Subject"] = "AI Study Assistant"
     	msg["From"] = sender_email
     	msg["To"] = to_email
