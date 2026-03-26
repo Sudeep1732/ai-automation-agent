@@ -9,20 +9,21 @@ client = OpenAI(
     base_url="https://openrouter.ai/api/v1"
 )
 def send_email(to_email, content):
-	sender_email = st.secrets["EMAIL"]
-	app_password = st.secrets["APP_PASSWORD"]    
-	msg = MIMEText(content)
-    	msg["Subject"] = "AI Study Assistant"
-    	msg["From"] = sender_email
-    	msg["To"] = to_email
+    sender_email = st.secrets["EMAIL"]
+    app_password = st.secrets["APP_PASSWORD"]
 
-    	server = smtplib.SMTP("smtp.gmail.com", 587)
-    	server.starttls()
-    	server.login(sender_email, app_password)
-    	server.send_message(msg)
-    	server.quit()
+    msg = MIMEText(content)
+    msg["Subject"] = "AI Study Assistant"
+    msg["From"] = sender_email
+    msg["To"] = to_email
 
-    	return "✅ Email sent successfully!"
+    server = smtplib.SMTP("smtp.gmail.com", 587)
+    server.starttls()
+    server.login(sender_email, app_password)
+    server.send_message(msg)
+    server.quit()
+
+    return "Email sent successfully!"
 
 st.title("🤖 AI Automation Agent")
 st.caption("An AI agent that understands user intent and performs tasks like summarization and automated email sending.")
